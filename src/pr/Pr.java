@@ -5,19 +5,15 @@
  */
 package pr;
 
-import com.das.controller.Exception_Exception;
-import com.das.controller.Hello;
-import com.das.controller.HelloResponse;
-import com.das.controller.Insert;
 import com.das.controller.InsertResponse;
-import com.das.controller.ObjectFactory;
 import com.das.controller.Service;
 import com.das.controller.Service_Service;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sound.midi.SysexMessage;
 
 /**
  *
@@ -29,18 +25,23 @@ public class Pr {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws MalformedURLException {
-        try {
-            URL url = new URL("http://localhost:8082/miPrimerWebServic/service?wsdl");
+            URL url = new URL("http://localhost:8080/miPrimerWebServic/service?wsdl");
             Service_Service d = new Service_Service(url);
             Service service = d.getServicePort();
             InsertResponse response = new InsertResponse();
-            boolean respuesta = service.insert("AA", "BB", "CC");
-            System.out.println(respuesta);
-        } catch (Exception_Exception ex) {
-            Logger.getLogger(Pr.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
+            boolean respuesta = service.insert("AA", "BB", "3" );
+            System.out.println("insert: "+respuesta);
+            
+            respuesta = service.updateUser("aup", "as", "1");
+            System.out.println("update:" +respuesta);
+            
+            List<String> list = service.find("2");
+            System.out.println("find: " + list.size());
+            if (list != null && !list.isEmpty()) {
+                System.out.println("cc: "+list.get(0));
+                System.out.println("name: "+list.get(1));
+                System.out.println("ape: "+list.get(2));
+            }
     }
     
 }

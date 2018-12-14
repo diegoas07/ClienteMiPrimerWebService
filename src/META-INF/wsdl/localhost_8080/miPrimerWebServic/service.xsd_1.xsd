@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://controller.das.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://controller.das.com/">
+
+<xs:element name="UpdateUser" type="tns:UpdateUser"/>
+
+<xs:element name="UpdateUserResponse" type="tns:UpdateUserResponse"/>
+
+<xs:element name="delete" type="tns:delete"/>
+
+<xs:element name="deleteResponse" type="tns:deleteResponse"/>
+
+<xs:element name="find" type="tns:find"/>
+
+<xs:element name="findResponse" type="tns:findResponse"/>
+
+<xs:element name="insert" type="tns:insert"/>
+
+<xs:element name="insertResponse" type="tns:insertResponse"/>
+
+<xs:complexType name="find">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="UpdateUser">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="apellido" type="xs:string" minOccurs="0"/>
+<xs:element name="cedula" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="UpdateUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insert">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="apellido" type="xs:string" minOccurs="0"/>
+<xs:element name="cedula" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="delete">
+<xs:sequence>
+<xs:element name="cedula" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
